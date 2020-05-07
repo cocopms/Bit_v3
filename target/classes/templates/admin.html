@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="resources/css/global.css">
+<script type="text/javascript" src="resources/js/user.js"></script>
+<script type="text/javascript" src="resources/js/admin.js"></script>
+</head>
+<body>
+	<ul id="navi">
+		<li><a class="active" href="#home">관리자</a></li>
+		<li><a href="#news">회원관리</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li><a href="#about">About</a></li>
+	</ul>
+	<table id="kcdc" style="margin: 100px auto; height: 70%">
+		<tr>
+			<td style="border: 3px solid black; width: 20%; margin-top: 200px">
+				<div>
+					<h3 id="total_count" style="margin-bottom: 50px">총회원수 :</h3>
+					<div style="margin-bottom: 50px">
+						이름 조회 : <input type="text" />
+					</div>
+					<ul id="side_menu">
+						<li><a class="user_list" href="#user_list">사용자 목록</a></li>
+						<li><a class="admin_list" href="#admin_list">관리자 목록</a></li>
+						<li><a class="item_list" href="#item_list">분실물 목록</a></li>
+						<li><a class="album_chart" href="#album_chart">앨범 차트</a></li>
+					</ul>
+				</div>
+			</td>
+			<td colspan="3"
+				style="border: 3px solid black; width: 80%; margin-top: 100px">
+				<div id="content"
+					style="width: 1200px; height: 500px; margin: 0 auto">
+					<table id="userData">
+						<tr>
+							<th><a id="number">No.</a></th>
+							<th><a id="userid">아이디</a></th>
+							<th><a id="name">이름</a></th>
+							<th><a id="ssn">주민번호</a></th>
+							<th><a id="email">이메일</a></th>
+							<th><a id="phoneNumber">전화번호</a></th>
+							<th><a id="registerDate">등록일자</a></th>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<script>
+		admin.init()
+	</script>
+</body>
+</html>
