@@ -123,8 +123,6 @@ CONSTRAINT player_fk FOREIGN KEY (team_id) REFERENCES team(team_id)
 SELECT * FROM player;
 DROP TABLE player;
 
-
-
 INSERT INTO STADIUM VALUES  ('D03','전주월드컵경기장','K05',28000,'전북 전주시 덕진구 반월동  763-1','063','273-1763');
 INSERT INTO STADIUM VALUES  ('B02','성남종합운동장','K08',27000,'경기도 성남시 분당구 야탑동  486','031','753-3956');
 INSERT INTO STADIUM VALUES  ('C06','포항스틸야드','K03',25000,'경북  포항시 남구 괴동 1','054','282-2002');
