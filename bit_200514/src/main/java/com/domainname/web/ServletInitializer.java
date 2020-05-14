@@ -1,4 +1,4 @@
-package com.cocopm.web;
+package com.domainname.web;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
