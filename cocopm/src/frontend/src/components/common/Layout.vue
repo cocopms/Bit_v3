@@ -1,28 +1,39 @@
 <template>
     <div id="mapper">
         <header>
-            <slot name="header" v-bind:title="header"></slot>
+            <slot name="header"
+                  :title="title"
+                  :login="login"
+                  :join="join">
+            </slot>
         </header>
         <aside id="sidebar">
-
+            <slot name="sidebar"></slot>
         </aside>
-            <section id="content">
-
-            </section>
+        <section id="content">
+            <slot name="content"
+                  :content="content">
+                <router-view/>
+            </slot>
+        </section>
         <footer>
-
+            <slot name="footer"
+                  :footer="footer">
+            </slot>
         </footer>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Layout",
-        data: ()=>{
+/*        name: 'Layout',*/
+        data(){ /*생략*/
             return {
-                header : "헤더",
-                login : "로그인",
-                signup : "회원가입"
+                title: '축구정보시스템',
+                login: '로그인',
+                join: '회원가입',
+                content: '축구 경기 일정 검색',
+                footer: '(사)축구선수협회'
             }
         }
     }
@@ -35,6 +46,7 @@
         margin: 20px auto;
     }
     header {
+        text-align: center;
         height: 100px;
         padding: 0 15px;
     }
@@ -50,6 +62,7 @@
         float: left;
     }
     footer {
+        text-align: center;
         clear: both;
         padding: 0 15px;
     }
