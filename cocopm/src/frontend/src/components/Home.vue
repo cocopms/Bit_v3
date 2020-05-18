@@ -10,12 +10,15 @@
             <template #sidebar>
                 <ul class="menu">
                     <li v-for="i of sidebars" :key="i.menu"> <!--self 생략가능-->
-                        {{i.menu}} <!--self 생략가능-->
+                        <router-link :to="i.link">{{i.menu}}</router-link> <!--self 생략가능-->
                     </li>
                 </ul>
             </template>
             <template #content>
                 <router-view/>
+            </template>
+            <template v-if="ok">
+                <router-link to="/counter"></router-link>
             </template>
             <template #footer="self">
                 <h3 id="footer">{{self.footer}}</h3>
@@ -32,12 +35,37 @@
         data: ()=>{
             return {
                 sidebars: [
-                    {menu: '쓰기'},
-                    {menu: '목록'},
-                    {menu: '검색'},
-                    {menu: '수정'},
-                    {menu: '삭제'}
+                    {menu: '등록', link:'/register'}, /*림크가 있어야함*/
+                    {menu: '목록', link:'/list'},
+                    {menu: '검색', link:'/search'},
+                    {menu: '수정', link:'/update'},
+                    {menu: '삭제', link:'/delete'},
+                    {menu: '회원수', link:'/counter'}
                 ]
+            }
+        },
+        methods: {
+            menu(i) {
+                switch(i) {
+                    case "등록":
+                        alert(1)
+                        break;
+                    case "목록":
+                        alert(2)
+                        break;
+                    case "검색":
+                        alert(3)
+                        break;
+                    case "수정":
+                        alert(4)
+                        break;
+                    case "삭제":
+                        alert(5)
+                        break;
+                    case "회원수":
+                        alert(6)
+                        break;
+                }
             }
         }
     }

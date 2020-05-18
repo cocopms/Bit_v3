@@ -13,7 +13,7 @@
             <label><b>비밀번호</b></label>
             <input type="password" placeholder="비밀번호를 입력해주세요" name="psw" required>
 
-            <router-link to="/calculator"><button @click="login" type="submit">로그인하기</button></router-link> <!--이벤트, 자바로 연결-->
+            <router-link to="/counter"><button @click="login" type="submit">로그인하기</button></router-link> <!--이벤트, 자바로 연결-->
             <label>
                 <input type="checkbox" checked="checked" name="remember"> 로그인 유지하기
             </label>
