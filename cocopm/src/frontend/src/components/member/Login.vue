@@ -8,12 +8,12 @@
 
         <div class="container">
             <label><b>아이디</b></label>
-            <input type="text" placeholder="아이디를 입력해주세요" name="uname" required>
-
+            <input type="text" @keyup.enter="moveToPasswd" v-model="userid" placeholder="아이디를 입력해주세요" name="userid" required>
+            <h3>입력한 아이디 : {{userid}}</h3>
             <label><b>비밀번호</b></label>
-            <input type="password" placeholder="비밀번호를 입력해주세요" name="psw" required>
-
-            <router-link to="/counter"><button @click="login" type="submit">로그인하기</button></router-link> <!--이벤트, 자바로 연결-->
+            <input type="password" @keyup.enter="login" v-model="passwd" placeholder="비밀번호를 입력해주세요" name="passwd" required>
+            <h3>입력한 비밀번호 : {{passwd}}</h3> <!--보통 id - pw - login 순서로 움직임-->
+            <button @click="login" type="submit">로그인하기</button><!--이벤트, 자바로 연결-->
             <label>
                 <input type="checkbox" checked="checked" name="remember"> 로그인 유지하기
             </label>
@@ -28,11 +28,29 @@
 </template>
 
 <script>/*only json*/
-    export default {
-/*        name: "login"*/
+/*import {mapActions} from 'vuex' --VuexCounter 참조*/
+    export default { /*=return*/
+
+        data() {
+            return {
+                userid: '',
+                passwd: ''
+            }
+        },
+
+/*        ---Vuex---
+            methods: mapActions([ /!*actions로 넘겨라*!/
+            'login' /!*상수 = const*!/
+            moveToPasswd() {
+                document.getElementById(elementId 'passwd').focus()
+            }
+        ])*/
         methods: {
-            login: ()=> {
-                alert('click')
+            login() {
+                alert('login')
+            },
+            moveToPasswd(){
+                document.getElementById( 'passwd').focus()
             }
         }
     }
