@@ -1,36 +1,52 @@
+import axios from 'axios'
+
 const state = {
-    userid: '',
-    passwd: ''
-}
-const actions = {
-    login({commit}) { /*람다에서 돌아감*/
-        {
-            commit('login')
-        }
-    },
-    join({commit}) {
-        {
-            commit('join')
-        }
-    }
+    context: 'http://localhost:3000/',
+    player: {}, /* 보안을 위해 풀지 말고 그대로 보내자 */
+    fail: false, /* 실패 */
+    auth: false /* 권한 */
 }
 const mutations = {
-    increment(state) {
-        state.count++
-        state.history.push('increment')
+    LOGIN_COMMIT(state, data) {
+        state.auth = true
+        state.player = data.player
+        localStorage.setItem('token', data.token) /* 접근권한 */
+        localStorage.setItem('playerId', data.player.playerId)
+        if (data.player.auth === 'USER') {
+            alert('일반 사용자')
+            /*일반 사용자*/
+        } else {
+            alert('관리자')
+            /* 관리자 */
+        }
+
     },
-    decrement(state) {
-        state.count--
-        state.history.push('decrement')
+    join() {
+        alert("회원가입")
     }
 }
-const getters = {
-    count(state) {return state.count},
-    limit : 5,
-    recentHistory (state) {
-        const end = state.history.length
-        const begin = end - limit < 0 ? 0 : end - limit
-        return state.history.slice(begin, end).join(', ')
+const getters = {}
+
+const actions = {
+        async login({commit}, payload) { /*람다에서 돌아감*/
+            const url = state.context + 'players/${payload.playerId}/access'
+            const headers = {
+                authorization: 'JWT fefege..',
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+            axios.post(url, payload, headers)
+                .then(({data}) => { /* 람다 줄이는 게 안됨 */
+                    alert('자바 다녀옴')
+                    commit('login_commit', data)
+                })
+                .catch(() => {
+                    alert('서버 전송 실패')
+                    state.fail = true
+                })
+    },
+    async join({commit}) {
+        commit('join')
     }
 }
 export default {
