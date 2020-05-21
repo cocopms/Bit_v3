@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as getters from './getters'
-import * as actions from './counter'
-import * as mutations from './mutations'
+import counter from "./counter";
+import player from "./player";
 Vue.use(Vuex)
 
 
@@ -11,4 +10,3 @@ export const store = new Vuex.Store({
         player, counter
     }
 })
-

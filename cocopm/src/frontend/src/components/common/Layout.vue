@@ -4,16 +4,15 @@
             <slot name="header"
                   :title="title"
                   :login="login"
-                  :join="join">
+                  :join="join"
+            :mypage="mypage" :logout="logout">
             </slot>
         </header>
         <aside id="sidebar">
             <slot name="sidebar"></slot>
         </aside>
         <section id="content">
-            <slot name="content"
-                  :content="content">
-                <router-view/>
+            <slot name="content">
             </slot>
         </section>
         <footer>
@@ -33,7 +32,9 @@
                 login: '로그인',
                 join: '회원가입',
                 content: '축구 경기 일정 검색',
-                footer: '(사)축구선수협회'
+                footer: '(사)축구선수협회',
+                logout: '로그아웃',
+                mypage: '마이페이지'
             }
         }
     }

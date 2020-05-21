@@ -16,6 +16,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.0'
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.5.4'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
